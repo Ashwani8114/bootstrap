@@ -1,0 +1,17 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %} Emapty Cart {% endblock title %}
+{% block main-content %}
+<div class="container">
+ <div class="row my-3">
+  <div class="col-sm-6 offset-sm-3">
+   <h2> Shoping Cart </h2>
+   <hr>
+   <h3> Sorry Your Cart is Empaty !! </h3>
+   <div class="col-sm-3">
+    <div class="item"><img src="{% static 'app/images/carts/cart4.png' %}" alt="" height="330px"></div>
+   </div>
+  </div>
+ </div>
+</div>
+{% endblock main-content %}

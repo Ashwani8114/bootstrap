@@ -1,0 +1,272 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+{% block banner_slider %}
+<!--Banner Slider-->
+ <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'app/images/banner/bg1.JPG' %}" class="d-block  w-100" alt="..."> 
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'app/images/banner/bg2.JPG' %}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'app/images/banner/bg3.JPG' %}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'app/images/banner/bg4.JPG' %}" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </a>
+</div>
+<!-- End Banner Slider -->
+{% endblock banner_slider %}
+
+{% block livesale %}
+<!-- Live Sale Section -->
+<div class="container">
+  <div class="row bg-danger text-center p-5 text-white border-bottom shadow">
+    <h1>SALE IS LIVE NOW</h1>
+    <span>5% Instant Discount on Axis Bank Credit and Debit Card</span>
+    <small class="fw-lighter">Term and Condition Applied (For details visit Bank's official Website)</small>
+  </div>
+</div> 
+<!-- End Live Sale Section -->
+{% endblock livesale %}
+
+{% block main-content %}
+<!-- 1st Product Slider -->
+<div class="m-3">
+ <h2>BottomWears by ShopEasy</h2>
+ <!-- Slider 1 -->
+ <div class="owl-carousel" id="slider1">
+
+  {% comment %} is tarah se ham jo bhi prou=duct ko add karna chahte hai use ham data base ke use se upload kar
+  sakte  hai sidha code me jane ki koi bhi jarurat nahi hoti hai ham use data base ke admin me 
+  rakhenge aur wo hamrae display me per sow kar jayega aur ham use usi tarha se send kar skate hai {% endcomment %}
+  {% for b in bottomwear %}
+  <a href="{% url 'product-detail' b.id %}" class="btn"><div class="item"><img src="{{b.product_image.url}}" alt="" height="200px"><span class="fw-bold">{{b.title}}</span><br><span class="fs-5"><span>{{b.beand}}</span>{{b.description }}<del> {{b.selling_price}}  </del> {{b.disounted_price}} <span class = "text-danger fs-6" > (50 % off) </span></div></a>
+
+  {% endfor %}
+
+  {% comment %} <a href="{% url 'product-detail' %}" class="btn"><div class="item"><img src="{% static 'app/images/product/1.jpg' %}" alt="" height="200px"><span class="fw-bold">Wireless Bluetooth headphone</span><br><span class="fs-5">Boat wireless headphone<del>Rs.1999</del>Rs.999<span class = "text-danger fs-6" > (50 % off) </span></div></a>
+  <div class="item"><img src="{% static 'app/images/product/2.jpg' %}" alt="" height="330px"><span class="fw-bold">Canon 5600 D</span><br><span class="fs-5"><del>Rs.59,900</del>Rs.39,000  <span class = "text-danger fs-6" > (25 % off)</span></div>
+  <div class="item"><img src="{% static 'app/images/product/3.jpg' %}" alt="" height="330px"><span class="fw-bold">Titanic Watch</span><br><span class="fs-5"><del>Rs.4,999</del>Rs.1,999  <span class = "text-danger fs-6" > (60 % off)</span></div>
+  <div class="item"><img src="{% static 'app/images/product/4.jpg' %}" alt="" height="330px"><span class="fw-bold">Poeme Oil <br><span class="fs-5">150 ml</span></span><br><span class="fs-5">Rs. 700</span></div>
+  <div class="item"><img src="{% static 'app/images/product/5.jpg' %}" alt="" height="330px"><span class="fw-bold">Dice</span><br><span class="fs-5">Rs. 500</span></div>
+  <div class="item"><img src="{% static 'app/images/product/6.jpg' %}" alt="" height="330px"><span class="fw-bold">Image</span><br><span class="fs-5"> Prevention Facewash <br>Rs.400</span></div>
+  <div class="item"><img src="{% static 'app/images/product/7.jpg' %}" alt="" height="330px"><span class="fw-bold">I Phone 12 mini</span><br><span class="fs-5"><del>80,900</del>Rs. 50,999  <span class = "text-danger fs-6" > (30 % off)</span></div>
+  <div class="item"><img src="{% static 'app/images/product/8.jpg' %}" alt="" height="330px"><span class="fw-bold">Olay</span><br><span class="fs-5">Brightness Cream <br>Rs. 300</span></div>
+  <div class="item"><img src="{% static 'app/images/product/9.jpg' %}" alt="" height="330px"><span class="fw-bold">Flying </span><br><span class="fs-5">handbag <br><del>Rs.3000</del>Rs.1,499  <span class = "text-danger fs-6" > (60 % off)</span></div>
+  <div class="item"><img src="{% static 'app/images/product/10.jpg' %}" alt="" height="330px"><span class="fw-bold">Now</span><br><span class="fs-5">Digest Medicine <br>Rs.449</span></div>
+  <div class="item"><img src="{% static 'app/images/product/11.jpg' %}" alt="" height="330px"><span class="fw-bold">Comex</span><br><span class="fs-5">Full set Camera <br><del> Rs.1,10,100</del>Rs.89,999  <span class = "text-danger fs-6" > (30 % off)</span></div>
+   {% endcomment %}
+ </div>
+
+ 
+</div>
+<!-- End 1st Product Slider -->
+
+<!-- Payment Info Section -->
+<div class="container my-5">
+ <div class="row">
+  <div class="col-sm-3">
+   <div class="card mb-3">
+     <div class="card-body">
+     <img src="{% static 'app/images/payavail/cc.jpg' %}" alt="" srcset="" class="img-fluid">
+     </div>
+   </div>
+  </div>
+  <div class="col-sm-3">
+   <div class="card mb-3">
+     <div class="card-body">
+      <img src="{% static 'app/images/payavail/upi.jpg' %}" alt="" srcset="" class="img-fluid">
+     </div>
+   </div>
+  </div>
+  <div class="col-sm-3">
+   <div class="card mb-3">
+     <div class="card-body">
+      <img src="{% static 'app/images/payavail/nb.jpg' %}" alt="" srcset="" class="img-fluid">
+     </div>
+   </div>
+  </div>
+  <div class="col-sm-3">
+   <div class="card mb-3">
+     <div class="card-body">
+      <img src="{% static 'app/images/payavail/bj.jpg' %}" alt="" srcset="" class="img-fluid">
+     </div>
+   </div>
+  </div>
+ </div>
+</div>
+<!-- End Payment Info Section -->
+
+<!-- 2nd Product Slider -->
+<div class="mx-3">
+ <h2>TopWear by ShopEasy</h2>
+ <!-- Slider 2 -->
+ <div class="owl-carousel" id="slider2">
+
+  {% comment %} is tarah se ham jo bhi prou=duct ko add karna chahte hai use ham data base ke use se upload kar
+  sakte  hai sidha code me jane ki koi bhi jarurat nahi hoti hai ham use data base ke admin me 
+  rakhenge aur wo hamrae display me per sow kar jayega aur ham use usi tarha se send kar skate hai {% endcomment %}
+  {% for tp in topwear %}
+  <a href="{% url 'product-detail' tp.id %}" class="btn"><div class="item"><img src="{{tp.product_image.url}}" alt="" height="200px"><span class="fw-bold">{{tp.title}}</span><br><span class="fs-5"><span>{{tp.beand}}<br></span><span class = 'fs-6' >{{tp.description }}</span>  <del> {{tp.selling_price}}</del>{{tp.disounted_price}}  <span class = "text-danger fs-6" > (50 % off) </span></div></a>
+
+  {% endfor %}
+
+{% comment %} 
+  <div class="item"><img src="{% static 'app/images/product1/s2.png' %}" alt="" height="330px"><span class="fw-bold">Roadster</span><br><span class="fs-5"><span class = 'fs-6'>Men Mustard Yellow & Black Printed Round Neck T-shirt</span><br><del>Rs.899</del>Rs.399 <span class = "text-danger fs-6" > (60 % off)</span></div>
+  <div class="item"><img src="{% static 'app/images/product1/t3.png' %}" alt="" height="330px"><span class="fw-bold">Mast & Harbour </span><br><span class="fs-5"><span class = "fs-6">Men Blue Slim Fit Stretchable Jeans</span> <br><del>Rs.1099</del>Rs.799 <span class = "text-danger fs-6" > (40 % off)</span></span></div>
+  <div class="item"><img src="{% static 'app/images/product1/ts1.png' %}" alt="" height="330px"><span class="fw-bold">Roadster</span><br><span class="fs-5"> <span class = "fs-6">Men Black Cotton Pure Cotton T-shirt</span> <br><del>Rs.499</del>Rs.199 <span class = "text-danger fs-6" > (60 % off)</span></span></div>
+  <div class="item"><img src="{% static 'app/images/product1/s1.png' %}" alt="" height="330px"><span class="fw-bold">The Indian Garage Co</span><br><span class="fs-5"> <span class = "fs-6"> Men Green Regular Fit Tartan Checks Opaque Checked Casual Shirt</span> <br><del>Rs.999</del>Rs.599 <span class = "text-danger fs-6" > (40 % off)</span></span></div>
+  <div class="item"><img src="{% static 'app/images/product1/s5.png' %}" alt="" height="330px"><span class="fw-bold">HIGHLANDER</span><br><span class="fs-5"> <span class = "fs-6">Men Blue Slim Fit Casual Shirt</span> <br><del>Rs.749</del>Rs.499 <span class = "text-danger fs-6" > (45 % off)</span></span></div>
+  <div class="item"><img src="{% static 'app/images/product1/ts2.png' %}" alt="" height="330px"><span class="fw-bold">HR & X</span><br><span class="fs-5"> <span class = "fs-6"> Men Mustard Yellow & Black Printed Round Neck T-shirt</span> <br><del>Rs.699</del>Rs.399 <span class = "text-danger fs-6" > (40 % off)</span></div>
+  <div class="item"><img src="{% static 'app/images/product1/s4.png' %}" alt="" height="330px"><span class="fw-bold">HERE&NOW</span><br><span class="fs-5"> <span class = "fs-6"> Men Charcoal Slim Fit Stretchable Jeans </span> <br><del>Rs.899</del>Rs.499 <span class = "text-danger fs-6" > (40 % off)</span></span></div>
+  <div class="item"><img src="{% static 'app/images/product1/b1.png' %}" alt="" height="330px"><span class="fw-bold">Roadster</span><br><span class="fs-5"> <span class = "fs-6"> Men Beige Solid Round Neck T-shirt</span> <br><del>Rs.599</del>Rs.249 <span class = "text-danger fs-6" > (50 % off)</span></span></div>
+  <div class="item"><img src="{% static 'app/images/product1/b2.png' %}" alt="" height="330px"><span class="fw-bold">Roadster</span><br><span class="fs-5"> <span class = "fs-6"> White Solid Drop-Shoulder T-shirt with Asymetric Hem</span> <br><del>Rs.599</del>Rs.299 <span class = "text-danger fs-6" > (50 % off)</span></span></div>
+  <div class="item"><img src="{% static 'app/images/product1/b3.png' %}" alt="" height="330px"><span class="fw-bold">Roadster</span><br><span class="fs-5"> <span class = "fs-6"> Men Grey Melange Typography Printed Pure Cotton Graphic T-shirt</span> <br><del>Rs.899</del>Rs.399 <span class = "text-danger fs-6" > (60 % off)</span></span></div>
+  <div class="item"><img src="{% static 'app/images/product1/b4.png' %}" alt="" height="330px"><span class="fw-bold">Roadster</span><br><span class="fs-5"> <span class = "fs-6"> Men Mustard Yellow & Black Printed Round Neck T-shirt</span></span> <br><del>Rs.899</del>Rs.399 <span class = "text-danger fs-6" > (60 % off)</span></div>
+   {% endcomment %}
+</div>
+
+{% comment %} payment process in thid website {% endcomment %}
+
+<div class="container my-5">
+  <div class="row">
+   <div class="col-sm-3">
+    <div class="card mb-3">
+      <div class="card-body">
+      <img src="{% static 'app/images/payment2/p1.png' %}" alt="" srcset="" class="img-fluid">
+      </div>
+    </div>
+   </div>
+   <div class="col-sm-3">
+    <div class="card mb-3">
+      <div class="card-body">
+       <img src="{% static 'app/images/payment2/p2.jpg' %}" alt="" srcset="" class="img-fluid">
+      </div>
+    </div>
+   </div>
+   <div class="col-sm-3">
+    <div class="card mb-3">
+      <div class="card-body">
+       <img src="{% static 'app/images/payment2/p3.png' %}" alt="" srcset="" class="img-fluid">
+      </div>
+    </div>
+   </div>
+   <div class="col-sm-3">
+    <div class="card mb-3">
+      <div class="card-body">
+       <img src="{% static 'app/images/payment2/p4.jpg' %}" alt="" srcset="" class="img-fluid">
+      </div>
+    </div>
+   </div>
+  </div>
+ </div>
+
+{% comment %} new slide {% endcomment %}
+
+
+<div class="mx-3">
+  <h2>Electric BY ShopEasy</h2>
+  <!-- Slider 2 -->
+  <div class="owl-carousel" id="slider3">
+
+    {% comment %} is tarah se ham jo bhi prou=duct ko add karna chahte hai use ham data base ke use se upload kar
+  sakte  hai sidha code me jane ki koi bhi jarurat nahi hoti hai ham use data base ke admin me 
+  rakhenge aur wo hamrae display me per sow kar jayega aur ham use usi tarha se send kar skate hai {% endcomment %}
+  {% for e in electric %}
+  <a href="{% url 'product-detail' e.id %}" class="btn"><div class="item"><img src="{{e.product_image.url}}" alt="" height="200px"><span class="fw-bold">{{e.title}}</span><br><span class="fs-5"><span>{{e.beand}}<br></span><span class = 'fs-6' >{{e.description }}</span>  <del>{{e.disounted_price}} </del>{{e.selling_price}}  <span class = "text-danger fs-6" > (50 % off) </span></div></a>
+
+  {% endfor %} 
+
+
+   {% comment %} <div class="item"><img src="{% static 'app/images/product2/a1.png' %}" alt="" height="330px"><span class="fw-bold">KALINI</span><br><span class="fs-5"><span class = 'fs-6'>Women Beige Floral Yoke Design Straight Kurta with Trousers & With Dupatta</span><br><del>Rs.3699</del>Rs.997 <span class = "text-danger fs-6" > (76 % off)</span></div>
+   <div class="item"><img src="{% static 'app/images/product2/a2.png' %}" alt="" height="330px"><span class="fw-bold">KALINI</span><br><span class="fs-5"><span class = "fs-6">Women White Printed Pure Cotton Kurta with Trousers & With Dupatta</span> <br><del>Rs.3499</del>Rs.979 <span class = "text-danger fs-6" > (72 % off)</span></span></div>
+   <div class="item"><img src="{% static 'app/images/product2/a3.png' %}" alt="" height="330px"><span class="fw-bold">Indo Era</span><br><span class="fs-5"> <span class = "fs-6">Women White Floral Yoke Design Regular Mirror Work Kurta with Palazzos & With Dupatta</span> <br><del>Rs.6399</del>Rs.2239 <span class = "text-danger fs-6" > (60 % off)</span></span></div>
+   <div class="item"><img src="{% static 'app/images/product2/a4.png' %}" alt="" height="330px"><span class="fw-bold">Yufta</span><br><span class="fs-5"> <span class = "fs-6"> Women Mauve Ethnic Motifs Printed Regular Kurta with Palazzos & With Dupatta</span> <br><del>Rs.3999</del>Rs.1599 <span class = "text-danger fs-6" > (62 % off)</span></span></div>
+   <div class="item"><img src="{% static 'app/images/product2/a5.png' %}" alt="" height="330px"><span class="fw-bold">Khushal K</span><br><span class="fs-5"> <span class = "fs-6">Women White Yoke Design Gotta Patti Kurta with Palazzos & Dupatta</span> <br><del>Rs.4749</del>Rs.1329 <span class = "text-danger fs-6" > (73 % off)</span></span></div>
+   <div class="item"><img src="{% static 'app/images/product2/s6.png' %}" alt="" height="330px"><span class="fw-bold">H & M</span><br><span class="fs-5"> <span class = "fs-6"> Women White Jumper</span> <br><del>Rs.699</del>Rs.399 <span class = "text-danger fs-6" > (40 % off)</span></div>
+   <div class="item"><img src="{% static 'app/images/product2/a7.png' %}" alt="" height="330px"><span class="fw-bold">Roadster</span><br><span class="fs-5"> <span class = "fs-6"> Women Black Solid Sweater</span> <br><del>Rs.1099</del>Rs.699 <span class = "text-danger fs-6" > (40 % off)</span></span></div>
+   <div class="item"><img src="{% static 'app/images/product2/a9.png' %}" alt="" height="330px"><span class="fw-bold">Tokyo Talkies</span><br><span class="fs-5"> <span class = "fs-6"> Women Rose Solid Slim-Fit Joggers </span> <br><del>Rs.1099</del>Rs.699 <span class = "text-danger fs-6" > (40 % off)</span></span></div>
+   <div class="item"><img src="{% static 'app/images/product2/a10.png' %}" alt="" height="330px"><span class="fw-bold">Shoetopia</span><br><span class="fs-5"> <span class = "fs-6">Women Peach Air Max Sport Shoes</span></span> <br><del>Rs.999</del>Rs.699 <span class = "text-danger fs-6" > (30 % off)</span></div>
+   <div class="item"><img src="{% static 'app/images/product2/a11.png' %}" alt="" height="330px"><span class="fw-bold">Shoetopia</span><br><span class="fs-5"> <span class = "fs-6">Women Navy Blue Textile Walking Non-Marking Shoes</span></span> <br><del>Rs.999</del>Rs.699 <span class = "text-danger fs-6" > (30 % off)</span></div> {% endcomment %}
+   
+ </div>
+
+ <div class="container my-5">
+  <div class="row">
+   <div class="col-sm-3">
+    <div class="card mb-3">
+      <div class="card-body">
+      <img src="{% static 'app/images/payment2/p1.png' %}" alt="" srcset="" class="img-fluid">
+      </div>
+    </div>
+   </div>
+   <div class="col-sm-3">
+    <div class="card mb-3">
+      <div class="card-body">
+       <img src="{% static 'app/images/payment2/p2.jpg' %}" alt="" srcset="" class="img-fluid">
+      </div>
+    </div>
+   </div>
+   <div class="col-sm-3">
+    <div class="card mb-3">
+      <div class="card-body">
+       <img src="{% static 'app/images/payment2/p3.png' %}" alt="" srcset="" class="img-fluid">
+      </div>
+    </div>
+   </div>
+   <div class="col-sm-3">
+    <div class="card mb-3">
+      <div class="card-body">
+       <img src="{% static 'app/images/payment2/p4.jpg' %}" alt="" srcset="" class="img-fluid">
+      </div>
+    </div>
+   </div>
+  </div>
+ </div> 
+
+
+ <div class="mx-3">
+  <h2>Electric BY ShopEasy</h2>
+  <!-- Slider 2 -->
+  <div class="owl-carousel" id="slider3">
+
+    {% comment %} is tarah se ham jo bhi prou=duct ko add karna chahte hai use ham data base ke use se upload kar
+  sakte  hai sidha code me jane ki koi bhi jarurat nahi hoti hai ham use data base ke admin me 
+  rakhenge aur wo hamrae display me per sow kar jayega aur ham use usi tarha se send kar skate hai {% endcomment %}
+  {% for c in casmetics %}
+  <a href="{% url 'product-detail' c.id %}" class="btn"><div class="item"><img src="{{c.product_image.url}}" alt="" height="200px"><span class="fw-bold">{{c.title}}</span><br><span class="fs-5"><span>{{c.beand}}<br></span><span class = 'fs-6' >{{c.description }}</span><del>{{c.disounted_price}} </del>{{c.selling_price}}  <span class = "text-danger fs-6" > (50 % off) </span></div></a>
+
+  {% endfor %} 
+
+
+   {% comment %} <div class="item"><img src="{% static 'app/images/product2/a1.png' %}" alt="" height="330px"><span class="fw-bold">KALINI</span><br><span class="fs-5"><span class = 'fs-6'>Women Beige Floral Yoke Design Straight Kurta with Trousers & With Dupatta</span><br><del>Rs.3699</del>Rs.997 <span class = "text-danger fs-6" > (76 % off)</span></div>
+   <div class="item"><img src="{% static 'app/images/product2/a2.png' %}" alt="" height="330px"><span class="fw-bold">KALINI</span><br><span class="fs-5"><span class = "fs-6">Women White Printed Pure Cotton Kurta with Trousers & With Dupatta</span> <br><del>Rs.3499</del>Rs.979 <span class = "text-danger fs-6" > (72 % off)</span></span></div>
+   <div class="item"><img src="{% static 'app/images/product2/a3.png' %}" alt="" height="330px"><span class="fw-bold">Indo Era</span><br><span class="fs-5"> <span class = "fs-6">Women White Floral Yoke Design Regular Mirror Work Kurta with Palazzos & With Dupatta</span> <br><del>Rs.6399</del>Rs.2239 <span class = "text-danger fs-6" > (60 % off)</span></span></div>
+   <div class="item"><img src="{% static 'app/images/product2/a4.png' %}" alt="" height="330px"><span class="fw-bold">Yufta</span><br><span class="fs-5"> <span class = "fs-6"> Women Mauve Ethnic Motifs Printed Regular Kurta with Palazzos & With Dupatta</span> <br><del>Rs.3999</del>Rs.1599 <span class = "text-danger fs-6" > (62 % off)</span></span></div>
+   <div class="item"><img src="{% static 'app/images/product2/a5.png' %}" alt="" height="330px"><span class="fw-bold">Khushal K</span><br><span class="fs-5"> <span class = "fs-6">Women White Yoke Design Gotta Patti Kurta with Palazzos & Dupatta</span> <br><del>Rs.4749</del>Rs.1329 <span class = "text-danger fs-6" > (73 % off)</span></span></div>
+   <div class="item"><img src="{% static 'app/images/product2/s6.png' %}" alt="" height="330px"><span class="fw-bold">H & M</span><br><span class="fs-5"> <span class = "fs-6"> Women White Jumper</span> <br><del>Rs.699</del>Rs.399 <span class = "text-danger fs-6" > (40 % off)</span></div>
+   <div class="item"><img src="{% static 'app/images/product2/a7.png' %}" alt="" height="330px"><span class="fw-bold">Roadster</span><br><span class="fs-5"> <span class = "fs-6"> Women Black Solid Sweater</span> <br><del>Rs.1099</del>Rs.699 <span class = "text-danger fs-6" > (40 % off)</span></span></div>
+   <div class="item"><img src="{% static 'app/images/product2/a9.png' %}" alt="" height="330px"><span class="fw-bold">Tokyo Talkies</span><br><span class="fs-5"> <span class = "fs-6"> Women Rose Solid Slim-Fit Joggers </span> <br><del>Rs.1099</del>Rs.699 <span class = "text-danger fs-6" > (40 % off)</span></span></div>
+   <div class="item"><img src="{% static 'app/images/product2/a10.png' %}" alt="" height="330px"><span class="fw-bold">Shoetopia</span><br><span class="fs-5"> <span class = "fs-6">Women Peach Air Max Sport Shoes</span></span> <br><del>Rs.999</del>Rs.699 <span class = "text-danger fs-6" > (30 % off)</span></div>
+   <div class="item"><img src="{% static 'app/images/product2/a11.png' %}" alt="" height="330px"><span class="fw-bold">Shoetopia</span><br><span class="fs-5"> <span class = "fs-6">Women Navy Blue Textile Walking Non-Marking Shoes</span></span> <br><del>Rs.999</del>Rs.699 <span class = "text-danger fs-6" > (30 % off)</span></div> {% endcomment %}
+   
+</div> 
+
+
+<!-- End 2nd Product Slider -->
+{% endblock main-content %}
+
